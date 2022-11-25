@@ -1,0 +1,91 @@
+<style>
+    .wrapper{
+    min-height: 90vh;
+  }
+  a{
+     color:  #FF8040;
+    }
+    
+    </style>
+<div class="view" style="background-image: url('assets/cloud.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+    
+  <div class="wrapper">
+    <div class="container ">
+  
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="scheduledFlight/add" (click)="add()" routerLink="admin" >ADD</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="scheduledFlight/show" (click)="view()" routerLink="customer">VIEW</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="scheduledFlight/search" (click)="search()" routerLink="admin">SEARCH</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="scheduledFlight/modify" (click)="search()" routerLink="admin">MODIFY</a>
+      </li>
+    </ul>
+   <br><br>
+    
+    <div class="container card shadow-lg p-3 mb-5 bg-white rounded">
+      <h3 class="font-weight-bold">Add Scheduled Flight  </h3>
+      <section style="border: 2px solid black; padding: 20px;">
+      <form ngNativeValidate #form>
+        <label>ScheduleFlightId :</label>
+        <input (blur)="validateId()" [(ngModel)]="scheduleFlight.scheduleFlightId" [ngModelOptions]="{standalone: true}" type="number" class="form-control" id="scheduleFlightId" required>
+        <small *ngIf="idValid" style="color: red;">Invalid ID. Please enter an id between 1 to 9999999.</small>
+        <br>
+        <label>Airport Code :</label>
+        <input  #x  type="text" class="form-control" [(ngModel)]="scheduleFlight.airport"  required>
+        <br>
+        <label>Airport Name:</label>
+        <input  #y  type="text" class="form-control" [(ngModel)]="scheduleFlight.airport"  required>
+        <br>
+        <label>Airport Location:</label>
+        <input  #z  type="text" class="form-control" [(ngModel)]="scheduleFlight.airport"  required>
+        <br>
+        <label>Source Airport :</label>
+        <input  #a  type="text" class="form-control" [(ngModel)]="scheduleFlight.airport"  required>
+        <br>
+        <label>Destination Airport :</label>
+        <input (blur)="validateAirports(a.value, b.value)"  #b  type="text" [(ngModel)]="scheduleFlight.airport"  class="form-control" required>
+        <small *ngIf="airportValid" style="color: red;">Source and Destination cannot be the same</small>
+        <br>
+        <label>Departure Time :</label>
+        <input  #c   class="dateselect" type="text"  class="form-control" required>
+        <br>
+        <label>Arrival Time :</label>
+        <input  #d    class="dateselect" type="text" class="form-control" required>
+        <br>
+        <label>Flight ID: </label>
+            <input type="number" #m class="form-control"  [(ngModel)]="scheduleFlight.flight" [ngModelOptions]="{standalone: true}" required>
+            <br>
+            <label>Flight Name: </label>
+            <input type="text"#n class="form-control"  [(ngModel)]="scheduleFlight.flight"  required>
+            <br>
+            <label>Flight Model: </label>
+            <input type="text" #o class="form-control"  [(ngModel)]="scheduleFlight.flight"  required>
+            <br>
+            <label>Seat Capacity: </label>
+            <input type="number" #p class="form-control"  [(ngModel)]="scheduleFlight.flight"  required>
+            <br>
+        <label>Available Seats: </label>
+            <input type="number" class="form-control"  [(ngModel)]="scheduleFlight.availableSeats" [ngModelOptions]="{standalone: true}" id="availableSeats" required>
+            <div class="invalid-feedback">Please fill out this field.</div>
+            <br>
+            <label>Schedule ID: </label>
+            <input #e type="number" class="form-control"  [(ngModel)]="scheduleFlight.schedule" [ngModelOptions]="{standalone: true}" id="schedule" required>
+            <br>
+          <div class="col-md-3 offset-md-9">
+              <input  type="submit" class="confBtn btn btn-success" (click)="form.checkValidity()? addScheduleFlight(scheduleFlight,e.value,a.value,b.value,c.value,d.value,x.value,y.value,z.value,m.value,n.value,o.value,p.value) : null" [disabled]="!buttonFlag" value="ADD SCHEDULE FLIGHTS">
+          </div>
+        </form>
+      </section>
+        </div>
+      </div>
+    </div>
+ 
+ 
+</div>
+<router-outlet></router-outlet>

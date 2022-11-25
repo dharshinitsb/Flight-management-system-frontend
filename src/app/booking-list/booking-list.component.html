@@ -1,0 +1,69 @@
+<div class="wrapper">
+  <div class="row">
+      <div class="card offset-md-3 shadow-lg p-3 mb-5 bg-white">
+
+
+<div class="panel panel-primary" >
+  <div class="panel-heading">
+    <h2 style="margin-top: 20px;">Booking List</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Booking ID</th>
+          <th>Booking Date</th>
+          <th>No of Passengers</th>
+        
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let booking of bookings | async">
+          <td>{{booking.bookingId}}</td>
+          <td>{{booking.bookingDate}}</td>
+          <td>{{booking.noOfPassengers}}</td>
+          <td>
+            <button (click)="deleteBooking(booking.bookingId)" class="btn btn-danger">Delete</button>
+            <button (click)="updateBooking(booking.bookingId)" class="btn btn-info" style="margin-left: 10px">Update</button>
+            <button (click)="bookingDetails(booking.bookingId)" class="btn btn-info" style="margin-left: 10px">Details</button>
+          </td>
+     
+         
+        </tr>
+       
+      </tbody>
+    </table>
+    <h2 style="margin-top: 20px;">Passenger Details</h2>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>PNR Number</th>
+            <th>Passenger Name</th>
+            <th>Passenger Age</th>
+            <th>Passenger UIN</th>
+            <th>Luggage</th>
+            </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let passenger of passenger | async">
+                <td>{{passenger.pnrNumber}}</td>
+                <td>{{passenger.passengerName}}</td>
+                <td>{{passenger.passengerAge}}</td>
+                <td>{{passenger.passengerUIN}}</td>
+                <td>{{passenger.luggage}}</td>
+                <td>
+                  <button  (click)="deletePassengerBooking(passenger.pnrNumber)" class="btn btn-danger">Delete</button>
+                  <button  class="btn btn-info" style="margin-left: 10px">Update</button>
+                  <button  (click)="bookingPassengerDetails(passenger.passengerUIN)" class="btn btn-info" style="margin-left: 10px">Details</button>
+                </td>
+                </tr>
+            </tbody>
+            </table></div>
+  
+  </div>
+</div>
+</div>
+</div>
+</div>

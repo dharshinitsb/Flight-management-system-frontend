@@ -1,0 +1,31 @@
+<div class="wrapper">
+  <div class="row">
+      <div class="card col-md-4 offset-md-4 shadow-lg p-3 mb-5 bg-white">
+<h2  style="margin-top: 20px;">Booking Details</h2>
+
+<hr/>
+
+<div class="panel-body">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Booking ID</th>
+        <th>Booking Date</th>
+        <th>No of Passengers</th>
+        
+        </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let booking of booking| async">
+            <td>{{booking.bookingId}}</td>
+            <td>{{booking.bookingDate}}</td>
+            <td>{{booking.noOfPassengers}}</td>
+            
+           
+            </tr>
+        </tbody>
+        </table></div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Back to Booking List</button><br></div></div></div>

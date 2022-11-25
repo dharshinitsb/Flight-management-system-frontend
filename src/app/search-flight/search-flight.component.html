@@ -1,0 +1,39 @@
+<div class="wrapper">
+    <div class="row">
+        <div class="card col-md-4 offset-md-4 shadow-lg p-3 mb-5 bg-white">
+            <h3 style="margin-top: 20px;">Book your Tickets!</h3>
+          
+            <div class="row">
+                <label for="from">From :</label>
+
+<select name="from"  >
+  <option value="Chennai">Chennai</option>
+  <option value="Mumbai">Mumbai</option>
+  <option value="Madurai">Madurai</option>
+  <option value="Bangalore">Bangalore</option>
+</select>
+            </div>
+            <div class="row">
+                <label for="To">To : </label>
+
+<select name="to" >
+  <option value="Chennai">Chennai</option>
+  <option value="Mumbai">Mumbai</option>
+  <option value="Madurai">Madurai</option>
+  <option value="Bangalore">Bangalore</option>
+</select>
+            </div>
+            <div class="row">
+              Date : <input class="form-control" type="date" name="date" >
+          </div>
+            <div class="row">
+                <button  class="logInBtn btn btn-info" (click)="search()">
+                    Search 
+                  </button>
+            </div>
+            <hr>
+           
+        </div>
+    </div>
+  </div>
+  

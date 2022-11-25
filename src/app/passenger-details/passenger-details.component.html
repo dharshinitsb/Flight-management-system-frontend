@@ -1,0 +1,47 @@
+
+<div class="wrapper">
+    <div class="row">
+        <div class="card col-md-4 offset-md-4 shadow-lg p-3 mb-5 bg-white">
+            <h3 style="margin-top: 20px; font-size: x-large;">Passenger Details</h3>
+            <!-- <div class="row">
+                Booking ID :
+                <input type="text" class="form-control" id="bookingId" required [(ngModel)]="booking.bookingId" name="bookingId">
+              </div>  -->
+          
+              <div class="row">
+                Booking Date :
+                <input type="text" class="form-control" id="bookingDate" required [(ngModel)]="booking.bookingDate" name="bookingDate">
+              </div>
+          
+              <div class="row">
+                No of Passengers :
+                <input type="text" class="form-control" id="noOfPassengers" required [(ngModel)]="booking.noOfPassengers" name="noOfPassengers">
+              </div>
+           
+            <div class="row">
+                Passenger Name : <input class="form-control" (blur)="validateName(); enableButton();"  type="text" name="name" [(ngModel)]="passenger.passengerName">
+                <small *ngIf="nameFlag" style="color: red;">Invalid Name</small>
+            </div>
+            <div class="row">
+                Passenger Age : <input class="form-control" (blur)="validateAge(); enableButton();"  type="number" name="age" [(ngModel)]="passenger.passengerAge">
+                <small *ngIf="ageFlag" style="color: red;">Invalid Age</small>
+            </div>
+            <div class="row">
+              Passenger UIN : <input class="form-control" (blur)="validateUin(); enableButton();"  type="text" name="uin" [(ngModel)]="passenger.passengerUIN">
+              <small *ngIf="uinFlag" style="color: red;">Invalid UIN</small>
+          </div>
+          <div class="row">
+            Luggage : <input class="form-control" (blur)="validateLuggage(); enableButton();" type="number" name="luggage" [(ngModel)]="passenger.luggage">
+            <small *ngIf="luggageFlag" style="color: red;">Luggage number can't be more than 10</small>
+        </div>
+            <div class="row">
+                <button [disabled]="buttonFlag" (click)=onSubmit() class="logInBtn btn btn-success">
+                    Submit
+                  </button>
+            </div>
+            <hr>
+           
+        </div>
+    </div>
+  </div>
+  
